@@ -3,72 +3,39 @@
   <div class="jumbotron center">
     <h1><%= @article.title %></h1>
   
-  <p>
-    <span style="color: grey">Posted On :<%= @article.created_at %></span>
-  </p>
+    <p>
+      <span style="color: grey">Posted On :<%= @article.created_at %></span>
+    </p>
   </div>
    <div class="col-md-2" >
-  <%= link_to 'Edit', edit_article_path(@article) %> |
-  <%= link_to 'Back', articles_path %> 
+    <%= link_to 'Edit', edit_article_path(@article) %> |
+    <%= link_to 'Back', articles_path %> 
+   </div>
+    <div class="col-md-9">
+    <p>
+      <%= @article.text %>
+    </p>
 
-</div>
-
-  <div class="col-md-9" >
-  <p>
-    <%= @article.text %>
-  </p>
-  <% if @article.comments %>
+   
+    <!-- style="border-style: solid; 
+      border-color: aliceblue; 
+      border-width: 1px; 
+      padding: 5px; 
+      background-color: #c3ccdb;
+      margin-top: 5px;">
+ </div> -->
+   <% if @article.comments %>
+   <div class="comments" style="background-color: #c3ccdb;">
     <h2>Comments</h2>
     <%= render @article.comments %>
   <% end %>
 
-   
+   </div>
   <h2>Add a comment:</h2>
   <%= render 'comments/form' %>
-   </div>
-   </div>
-
-</div>
-</div>
+  </div>
+ </div>
 
 
-<!-- <p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
- 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
 
-<h2>Comments</h2>
-<% @article.comments.each do |comment| %>
-  <p>
-    <strong>Commenter:</strong>
-    <%= comment.commenter %>
-  </p>
- 
-  <p>
-    <strong>Comment:</strong>
-    <%= comment.body %>
-  </p>
-<% end %>
 
-<h2>Add a comment:</h2>
-<%= form_for([@article, @article.comments.build]) do |f| %>
-  <p>
-    <%= f.label :commenter %><br>
-    <%= f.text_field :commenter %>
-  </p>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %> -->
