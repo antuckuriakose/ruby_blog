@@ -9,23 +9,8 @@
   </head>
 
   <body>
-    <header class="navbar  navbar-default">
-      <div class="navbar-class">
-        <div class="container">
-
-
-          <!-- Collect the nav links, forms, and other content for toggling -->
-
-          <ul class="nav navbar-nav">
-            <li><%= link_to "HOME", articles_path, :class=>'active' %></li>
-              
-            <li><a href="#">TRAINING</a></li>
-            
-            <li><a href="#">CONTACT</a></li>
-          </ul>
-        </div>
-      </div>
-    </header>
+   <%= render 'layouts/nav' %>
+    
   	<div class="container">
       <%= yield %>
   	</div>
