@@ -9,11 +9,13 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.paginate(:page => params[:page], :per_page => 3).order('created_at DESC')
+    puts @articles.inspect
   end
 
   def show
     @article = Article.find(params[:id])
     authorize! :read, @article
+     # @author = Author.find(@user.id);
   end
 
   def new
@@ -32,7 +34,6 @@ class ArticlesController < ApplicationController
       render 'new'
     end
   end
-
   def update
     @article = Article.find(params[:id])
 
