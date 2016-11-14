@@ -2,19 +2,21 @@
 <!-- <div class="col-md-6" >  -->
   <div class="jumbotron center">
     <h1><%= @article.title %></h1>
-  
-    <p>
-      <span style="color: grey">Posted On :<%= @article.created_at %></span>
-    </p>
+    
+      <p>
+        <span style="color: grey">Posted On :<%= @article.created_at %></span>
+      </p>
   </div>
-   <div class="col-md-2" >
-    <%= link_to 'Edit', edit_article_path(@article) %> |
-    <%= link_to 'Back', articles_path %> 
-   </div>
-    <div class="col-md-9">
-    <p>
-      <%= @article.text %>
-    </p>
+     <div class="col-md-2" >
+      <% if can? :update, @article %> 
+        <%= link_to 'Edit', edit_article_path(@article) %> |
+      <% end %>
+      <%= link_to 'Back', articles_path %> 
+     </div>
+         <div class="col-md-9">
+            <p>
+            <%= @article.text %>
+           </p>
 
    
     <!-- style="border-style: solid; 
@@ -24,16 +26,21 @@
       background-color: #c3ccdb;
       margin-top: 5px;">
  </div> -->
-   <% if @article.comments %>
-   <div class="comments" style="background-color: #c3ccdb;">
-    <h2>Comments</h2>
-    <%= render @article.comments %>
-  <% end %>
-
+      <div class="col-md-12" style="border-color:#c3ccdb; background-color: #c3ccdb";>
+      
+        <% if @article.comments %>
+  
+        <h2>Comments</h2>
+        <%= render @article.comments %>
+        <% end %>
+       </div>
+        
+        <div class="col-md-12" style="border-color: aliceblue; background-color: #b7c8e5;">
+        <h2>Add a comment:</h2>
+        <%= render 'comments/form' %> 
+      </div>
+     
    </div>
-  <h2>Add a comment:</h2>
-  <%= render 'comments/form' %>
-  </div>
  </div>
 
 
