@@ -1,4 +1,10 @@
 class ArticlesController < ApplicationController
+  rescue_from CanCan::AccessDenied do |exception|
+    render :file => "#{Rails.root}/public/403.html", :status => 403, :layout => false
+    ## to avoid deprecation warnings with Rails 3.2.x (and incidentally using Ruby 1.9.3 hash syntax)
+    ## this render call should be:
+    # render file: "#{Rails.root}/public/403", formats: [:html], status: 403, layout: false
+  end
 
   before_action :authenticate_user! 
   def index
@@ -7,6 +13,7 @@ class ArticlesController < ApplicationController
  
   def show
     @article = Article.find(params[:id])
+    authorize! :read, @article
   end
  
   def new
@@ -39,6 +46,8 @@ class ArticlesController < ApplicationController
  
   def destroy
     @article = Article.find(params[:id])
+    authorize! :destroy, @article, :message => "Unable to delete this article."
+    
     @article.destroy
  
     redirect_to articles_path

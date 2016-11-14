@@ -6,20 +6,34 @@
   </div>
   <div class="col-md-12">
     <div class="col-md-2" style="background-color: aliceblue; margin-right: 2px; ">
-       <%= link_to 'New article', new_article_path %>
+       <% if current_user.try(:is_admin?) %>
+         <%= link_to 'New article', new_article_path %>
+       <% end %>  
+       <% if user_signed_in? %>
+         <p>Signed in as <%= current_user.email %></p>
+       <% end %>
     </div>
     <div class="col-md-9" style="background-color: azure;">
       <% @articles.each do |article| %>
        
         <div class="col-md-12" style="background-color: azure;">
-          <center><h2><%= link_to article.title, article_path(article) %></h2></center>
+          <center>
+            <h2>
+              <b>
+                <%= link_to article.title, article_path(article) %>
+              </b>
+            </h2>
+          </center>
           <div >
-            <p><%= article.text %></p>
+            <p><%= article.text[0..100] %>...</p>
             <%= link_to 'Continue Reading ->', article_path(article) %>
             <p style="float: right;">
-            <%= link_to 'X', article_path(article),
+            <% if  can? :destroy, @article %>
+              <%= link_to 'X', article_path(article),
                      method: :delete,
                      data: { confirm: 'Are you sure?' } %>
+            <% end %>
+            
             </p>
             <p>Posted On : <%= article.created_at %></p>
             <br/>
@@ -28,7 +42,7 @@
         
         </div>
       <% end %>
-      <%= will_paginate @articles%>
+      <center><%= will_paginate @articles%></center>  
 
     </div>
   </div> 
