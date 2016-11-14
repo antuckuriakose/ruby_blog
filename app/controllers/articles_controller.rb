@@ -6,9 +6,9 @@ class ArticlesController < ApplicationController
     # render file: "#{Rails.root}/public/403", formats: [:html], status: 403, layout: false
   end
 
-
+  # before_action :authenticate_user!
   def index
-    @articles = Article.paginate(:page => params[:page], :per_page => 3).order('created_at DESC')
+    @articles = Article.paginate(:page => params[:page], :per_page => 5).order('created_at DESC')
   end
 
   def show

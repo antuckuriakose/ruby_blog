@@ -7,17 +7,16 @@
 
           <ul class="nav navbar-nav">
             <li><%= link_to "HOME", articles_path, :class=>'active' %></li>
-              
-            <li><a href="#">TRAINING</a></li>
-            
+            <li><%= link_to "TRAINING", '#' %></li>
+
             <li><a href="#">CONTACT</a></li>
-            <li style="float: right; "> 
+            <li style="float: right; ">
               <% if user_signed_in? %>
                 <%= link_to 'SIGN OUT', destroy_user_session_path , :method => :delete %>
               <% else %>
                 <li><%= link_to 'REGISTER', new_user_registration_path %></li>  <li><%= link_to 'SIGN IN', new_user_session_path %></li>
             <% end %>
-            
+
           </ul>
         </div>
       </div>
