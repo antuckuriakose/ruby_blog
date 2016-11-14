@@ -6,12 +6,14 @@
   </div>
   <div class="col-md-12">
     <div class="col-md-2" style="background-color: aliceblue; margin-right: 2px; ">
-       <% if current_user.try(:is_admin?) %>
+       <% if current_user.try(:is_admin?) || user_signed_in? %>
          <%= link_to 'New article', new_article_path %>
+          <p>Signed in as <%= current_user.email %></p>
        <% end %>  
-       <% if user_signed_in? %>
+      <!--  <% if user_signed_in? %>
+         <%= link_to 'New article', new_article_path %>
          <p>Signed in as <%= current_user.email %></p>
-       <% end %>
+       <% end %>  -->
     </div>
     <div class="col-md-9" style="background-color: azure;">
       <% @articles.each do |article| %>
