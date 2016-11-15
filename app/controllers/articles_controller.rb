@@ -8,7 +8,7 @@ class ArticlesController < ApplicationController
 
 
   def index
-    @articles = Article.paginate(:page => params[:page], :per_page => 3).order('created_at DESC')
+    @articles = Article.paginate(:page => params[:page], :per_page => 3).includes(:user).order('created_at DESC')
     puts @articles.inspect
   end
 

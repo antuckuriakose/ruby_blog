@@ -2,13 +2,13 @@
 <!-- <div class="col-md-6" >  -->
   <div class="jumbotron center">
     <h1><%= @article.title %></h1>
-       <% if current_user.try(:is_admin?)%>
+      <!--  <% if current_user.try(:is_admin?)%>
         <%= debug @article %>
         <p>
           <b>Title:</b>
           <%= @article.title %>
         </p>
-      <% end %>
+      <% end %> -->
        
       <p>
         <span style="color: grey">Posted On :<%= @article.created_at %></span>
