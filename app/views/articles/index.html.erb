@@ -10,7 +10,7 @@
          <% if can? :create, Article %>
            <%= link_to 'New article', new_article_path %>
          <% end %>
-         <p>Signed in as <%= current_user.email %></p>
+         <p>Signed in as <%= current_user.name %></p>
        <% end %>
     </div>
     <div class="col-md-9" style="background-color: azure;">

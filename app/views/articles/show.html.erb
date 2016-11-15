@@ -4,7 +4,7 @@
     <h1><%= @article.title %></h1>
 
       <p>
-        <span style="color: grey">Posted On :<%= @article.created_at %> by <%= @article.user.email %></span>
+        <span style="color: grey">Posted On :<%= @article.created_at.strftime("%I:%M:%S %p %B %d, %Y") %> by <%= @article.user.name? ? @article.user.name : @article.user.email %></span>
       </p>
   </div>
      <div class="col-md-2" >

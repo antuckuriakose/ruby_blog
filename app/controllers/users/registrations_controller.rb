@@ -8,15 +8,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    super
-    @user = User.create(sign_up_params)
-    if @user.save
-      redirect_to article_path
-    else
-      redirect_to article_path
-    end
-  end
+  # def create
+  #   super
+  #   @user = User.create(sign_up_params)
+  #   if @user.save
+  #     render 'articles/index'
+  #   else
+  #     render 'new'
+  #   end
+  # end
 
   # GET /resource/edit
   # def edit
@@ -69,6 +69,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
 
     def account_update_params
-      params.require(:user).permit(:email, :password)
+      params.require(:user).permit(:email, :password, :dob, :name, :about, :current_password)
     end
 end
