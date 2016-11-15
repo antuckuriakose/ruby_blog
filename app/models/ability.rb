@@ -3,8 +3,8 @@ class Ability
 
   def initialize(user)
     user ||= User.new # guest user (not logged in)
-    
-    if user.is_admin?
+
+    if user.has_role? :admin
       can :manage, :all
     else
       can [:read, :create], Article
@@ -41,7 +41,7 @@ class Ability
 
   # def current_ability
   #   @current_ability ||= Ability.new(current_user)
-  #   if @current_ability.is_admin?
+  #   if @current_ability.has_role? :admin
   #     can :manage, :all
   #   else
   #     can :read, :update, :destroy , Article , user_id: @current_ability.id
