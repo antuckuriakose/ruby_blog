@@ -30,6 +30,23 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
+  <div class="field">
+    <%= f.label :first_name%><br />
+    <%= f.text_field :first_name, autofocus: true ,:class=>'form-control' %>
+  </div>
+     
+  <div class="field">
+    <%= f.label :last_name%><br />
+    <%= f.text_field :last_name, autofocus: true ,:class=>'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :date_of_birth%><br />
+    <%= f.date_field :date_of_birth, autofocus: true ,:class=>'form-control' %>
+  </div>
+  <div class="field">
+    <%= f.label :Gender%><br />
+    <%= f.select :Gender, [["Not Telling", 1], ["Male", 2], ["Female", 3]],:class=>'form-control' %>
+  </div>
 
   <div class="actions">
     <%= f.submit "Update" %>
