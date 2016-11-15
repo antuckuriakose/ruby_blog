@@ -12,8 +12,17 @@
    <%= render 'layouts/nav' %>
 
   	<div class="container">
-     <p class="notice"><%= notice %></p>
-     <p class="alert"><%= alert %></p>
+      <% if notice %>
+        <div class="alert alert-success">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <p class="notice"><%= notice %></p>
+        </div>
+      <% elsif alert  %>
+        <div class="alert alert-danger">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <p class="alert"><%= alert %></p>
+        </div>
+      <% end %>
      <%= yield %>
   	</div>
   </body>
