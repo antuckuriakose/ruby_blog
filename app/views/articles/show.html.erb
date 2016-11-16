@@ -34,11 +34,13 @@
         <%= render @article.comments %>
         <% end %>
        </div>
+       <% if can? :destroy, @article %>
+       <div class="col-md-12" style="border-color: aliceblue; background-color: #b7c8e5;">
+         <h2>Add a comment:</h2>
+         <%= render 'comments/form' %>
+       </div>
+       <% end %>
 
-        <div class="col-md-12" style="border-color: aliceblue; background-color: #b7c8e5;">
-        <h2>Add a comment:</h2>
-        <%= render 'comments/form' %>
-      </div>
 
    </div>
  </div>

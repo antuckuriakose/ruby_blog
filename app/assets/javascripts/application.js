@@ -16,7 +16,6 @@
 //= require_tree .
 //= require bootstrap-sprockets
 //= require bootstrap
-// Froala editor plugins
 //= require froala_editor.min.js
 //= require plugins/align.min.js
 //= require plugins/char_counter.min.js
