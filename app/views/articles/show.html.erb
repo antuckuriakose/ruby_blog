@@ -2,7 +2,14 @@
 <!-- <div class="col-md-6" >  -->
   <div class="jumbotron center">
     <h1><%= @article.title %></h1>
-    
+       <% if current_user.try(:is_admin?)%>
+        <%= debug @article %>
+        <p>
+          <b>Title:</b>
+          <%= @article.title %>
+        </p>
+      <% end %>
+       
       <p>
         <span style="color: grey">Posted On :<%= @article.created_at %></span>
       </p>
@@ -17,16 +24,15 @@
             <p>
             <%= @article.text %>
            </p>
+        <!--    <% if user_signed_in? && !current_user.try(:is_admin?) %>
+             <%= simple_format @article.to_yaml %>
+             <p>
+             <b>text:</b>
+             <%= @article.text %>
+             </p>
+           <% end %> -->
 
-   
-    <!-- style="border-style: solid; 
-      border-color: aliceblue; 
-      border-width: 1px; 
-      padding: 5px; 
-      background-color: #c3ccdb;
-      margin-top: 5px;">
- </div> -->
-      <div class="col-md-12" style="border-color:#c3ccdb; background-color: #c3ccdb";>
+  <div class="col-md-12" style="border-color:#c3ccdb; background-color: #c3ccdb";>
       
         <% if @article.comments %>
   
