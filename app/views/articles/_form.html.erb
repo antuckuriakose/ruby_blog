@@ -12,7 +12,7 @@
    
     <p>
       <%= f.label :text %><br>
-      <%= f.text_area :text , :class=>'form-control'%>
+      <%= f.text_area :text, :id=>'edit' , :class=>'form-control'%>
     </p>
    
     <p>
@@ -20,4 +20,10 @@
     </p>
    
   <% end %>
+  <!-- Initialize the editor. -->
+  <script>
+      $(function() {
+          $('#edit').froalaEditor()
+      });
+  </script>
 </div>

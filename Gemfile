@@ -35,7 +35,15 @@ gem 'devise'
 # gem for cancan
 gem 'cancancan', '~> 1.10'
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+#gem fo upload _file
+gem "paperclip", "~> 5.0.0"
+# gem  carrierwave
+#foroal editor
+gem "wysiwyg-rails"
+#gem for editor
+
+# gem  bootstrap-sass
+# # gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
