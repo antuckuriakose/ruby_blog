@@ -8,7 +8,7 @@ class Ability
       can :manage, :all
     elsif  user.has_role? :moderator
       can [:read, :update,:create], Article
-      can [:update, :destroy],Article, :user_id => user.id
+      can [:read,:create ,:update,:destroy],Article, :user_id => user.id
     else
       can [:read, :create], Article
       can [:update, :destroy], Article, :user_id => user.id
