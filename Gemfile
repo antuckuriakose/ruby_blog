@@ -39,8 +39,8 @@ gem 'devise'
 gem 'cancancan', '~> 1.10'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
-gem 'wysiwyg-rails'
+gem 'ckeditor'
+gem 'paperclip'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri

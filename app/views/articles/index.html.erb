@@ -10,9 +10,10 @@
         <% if can? :create, Article %>
           <%= link_to 'New article', new_article_path %>
          <p>Signed in as <%= current_user.name %></p>
+         <%= image_tag current_user.avatar.url(:thumb) %>
         <% end %>
-      <% end %>  
-     
+      <% end %>
+
     </div>
     <div class="col-md-9" style="background-color: azure;">
       <% @articles.each do |article| %>

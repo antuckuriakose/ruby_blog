@@ -6,7 +6,7 @@ class UserTest < ActiveSupport::TestCase
     assert !u.save
   end
 
-  test "craete user" do
+  test "create user" do
     u = User.new(
       :name => 'sample',
       :email => 'sample@sample.com',

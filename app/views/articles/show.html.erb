@@ -2,13 +2,6 @@
 <!-- <div class="col-md-6" >  -->
   <div class="jumbotron center">
     <h1><%= @article.title %></h1>
-       <% if current_user.try(:is_admin?)%>
-        <%= debug @article %>
-        <p>
-          <b>Title:</b>
-          <%= @article.title %>
-        </p>
-      <% end %>
 
       <p>
         <span style="color: grey">Posted On :<%= @article.created_at.strftime("%I:%M:%S %p %B %d, %Y") %> by <%= @article.user.name? ? @article.user.name : @article.user.email %></span>
@@ -25,15 +18,6 @@
       <%= @article.text.html_safe %>
     </div>
     <div class="col-md-12" style="border-color:#c3ccdb; background-color: #c3ccdb; padding-bottom: 25px;">
-             <%= simple_format @article.to_yaml %>
-             <p>
-             <b>text:</b>
-             <%= @article.text %>
-             </p>
-           <% end %> -->
-      border-color: aliceblue; 
-      border-width: 1px; 
-      padding: 5px; -->
       <% if @article.comments %>
         <h2>Comments</h2>
         <%= render @article.comments %>
