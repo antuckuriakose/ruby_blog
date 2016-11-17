@@ -11,8 +11,10 @@ class Ability
       can :manage, Comment
     else
       can [:read, :create], Article
-      can [:update, :destroy], Article, :user_id => user.id
+       can [:update, :destroy], Article, :user_id => user.id
       can [:destroy], Comment, :commenter => user.name
+      # can [:destroy], Article, :user_id=>user.id
+
     end
 
     # Define abilities for the passed in user here. For example:

@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
     authorize! :read, @article
+     # @author = Author.find(@user.id);
   end
 
   def new
@@ -35,7 +36,6 @@ class ArticlesController < ApplicationController
       render 'new'
     end
   end
-
   def update
     @article = Article.find(params[:id])
 
