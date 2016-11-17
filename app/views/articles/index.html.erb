@@ -24,8 +24,8 @@
               </b>
             </h2>
           </center>
-          <div >
-            <p><%= article.text[0..100] %>...</p>
+          <div>
+            <strong><%= strip_tags(article.text[0..100]) %>...</strong>
             <%= link_to 'Continue Reading ->', article_path(article) %>
             <p style="float: right;">
             <% if  can? :destroy, @article %>
