@@ -7,40 +7,27 @@
         <span style="color: grey">Posted On :<%= @article.created_at.strftime("%I:%M:%S %p %B %d, %Y") %> by <%= @article.user.name? ? @article.user.name : @article.user.email %></span>
       </p>
   </div>
-     <div class="col-md-2" >
-      <% if can? :update, @article %>
-        <%= link_to 'Edit', edit_article_path(@article) %> |
-      <% end %>
-      <%= link_to 'Back', articles_path %>
-     </div>
-         <div class="col-md-9">
-           <div>
-             <%= @article.text.html_safe %>
-           </div>
-
-
-    <!-- style="border-style: solid;
-      border-color: aliceblue;
-      border-width: 1px;
-      padding: 5px;
-      background-color: #c3ccdb;
-      margin-top: 5px;">
- </div> -->
-      <div class="col-md-12" style="border-color:#c3ccdb; background-color: #c3ccdb";>
-
-        <% if @article.comments %>
-
+  <div class="col-md-2" >
+    <% if can? :update, @article %>
+      <%= link_to 'Edit', edit_article_path(@article) %> |
+    <% end %>
+    <%= link_to 'Back', articles_path %>
+  </div>
+  <div class="col-md-9">
+    <div class="col-md-12">
+      <%= @article.text.html_safe %>
+    </div>
+    <div class="col-md-12" style="border-color:#c3ccdb; background-color: #c3ccdb; padding-bottom: 25px;">
+      <% if @article.comments %>
         <h2>Comments</h2>
         <%= render @article.comments %>
-        <% end %>
-       </div>
-       <% if can? :destroy, @article %>
-       <div class="col-md-12" style="border-color: aliceblue; background-color: #b7c8e5;">
-         <h2>Add a comment:</h2>
-         <%= render 'comments/form' %>
-       </div>
-       <% end %>
-
-
-   </div>
- </div>
+      <% end %>
+    </div>
+    <% if can? :create, Comment %>
+      <div class="col-md-12" style="border-color: aliceblue; background-color: #b7c8e5; padding-bottom: 15px; margin-bottom: 15px;">
+        <h2>Add a comment:</h2>
+        <%= render 'comments/form' %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -17,13 +17,11 @@
       <% @articles.each do |article| %>
 
         <div class="col-md-12" style="background-color: azure;">
-          <center>
-            <h2>
-              <b>
-                <%= link_to article.title, article_path(article) %>
-              </b>
-            </h2>
-          </center>
+          <h2>
+            <b>
+              <%= link_to article.title, article_path(article) %>
+            </b>
+          </h2>
           <div >
             <p><%= strip_tags(article.text[0..100]) %>...</p>
             <%= link_to 'Continue Reading ->', article_path(article) %>
