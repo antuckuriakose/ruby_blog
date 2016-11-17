@@ -12,7 +12,7 @@ class Ability
     elsif user.has_role? :writer
       can [:read, :create], Article
       can [:read, :create], Comment
-      can [:update, :destroy], Article, :user_id => user.id
+       can [:update, :destroy], Article, :user_id => user.id
       can [:destroy], Comment, :commenter => user.name
     else
       can [:read], Article

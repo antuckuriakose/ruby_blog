@@ -6,12 +6,13 @@
   </div>
   <div class="col-md-12">
     <div class="col-md-2" style="background-color: aliceblue; margin-right: 2px; ">
-       <% if user_signed_in? %>
-         <% if can? :create, Article %>
-           <%= link_to 'New article', new_article_path %>
-         <% end %>
+      <% if user_signed_in? %>
+        <% if can? :create, Article %>
+          <%= link_to 'New article', new_article_path %>
          <p>Signed in as <%= current_user.name %></p>
-       <% end %>
+        <% end %>
+      <% end %>  
+     
     </div>
     <div class="col-md-9" style="background-color: azure;">
       <% @articles.each do |article| %>
@@ -34,6 +35,7 @@
 
             </p>
             <p>Posted On : <%= article.created_at.strftime("%I:%M:%S %p %B %d, %Y") %> by <%= article.user.name? ? article.user.name : 'Unknown' %></p>
+            <p>authorname: <%=article.user.email %></p>
             <br/>
             <hr style="border-top: 1px solid #ccc;" />
           </div>
