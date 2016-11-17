@@ -7,10 +7,8 @@
 
           <ul class="nav navbar-nav">
             <li><%= link_to "HOME", articles_path, :class=>'active' %></li>
-              
-            <li><a href="#">TRAINING</a></li>
-            
-            <li><a href="#">CONTACT</a></li>
+              <li><%= link_to "TRAINING", articles_path, :class=>'active' %></li>
+              <li><a href="#">CONTACT</a></li>
             <li style="float: right; "> 
               <% if user_signed_in? %>
                 <%= link_to 'SIGN OUT', destroy_user_session_path , :method => :delete %>
