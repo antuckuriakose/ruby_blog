@@ -13,6 +13,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def create
   #   super
   # end
+  # def create
+  #   @user = User.create( user_params )
+  # end
 
   # GET /resource/edit
   # def edit
@@ -52,12 +55,15 @@ protected
 private
 
   def sign_up_params
-    params.require(:user).permit(:email, :password, :password_confirmation,:first_name, :last_name,:date_of_birth,:Gender )
+    params.require(:user).permit(:email, :password, :password_confirmation,:first_name, :last_name,:date_of_birth,:Gender,:avatar )
   end
 
   def account_update_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :current_password,:first_name,:last_name,:date_of_birth,:Gender)
+    params.require(:user).permit(:email, :password, :password_confirmation, :current_password,:first_name,:last_name,:date_of_birth,:Gender,:avatar)
   end
+  # def user_params
+  #   params.require(:user).permit(:avatar)
+  # end
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
   #   super(resource)
