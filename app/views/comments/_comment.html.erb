@@ -9,7 +9,7 @@
   <h6> <%= comment.commenter %></h6>
   <div class="col-md-offset-2">
   	<p border=1>
-      <%= comment.body %>
+      <%= raw (comment.body )%>
       <span style="color: red; float: right;">
         <%= link_to 'X', [comment.article, comment],
                      method: :delete,
