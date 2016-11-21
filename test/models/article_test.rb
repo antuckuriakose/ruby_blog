@@ -23,7 +23,7 @@ class ArticleTest < ActiveSupport::TestCase
  	article = Article.new
  	article.title = "Testing"
  	article.text = "Testing"
- 	assert article.save, "saved article having title and body"
+ 	assert article.save, "should not save  article having title and body"
  end
 
 end
