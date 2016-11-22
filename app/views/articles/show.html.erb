@@ -21,9 +21,9 @@
       <%= link_to 'Back', articles_path %>
      </div>
          <div class="col-md-9">
-            <p>
-            <%= @article.text %>
-           </p>
+            <strong>
+            <%= raw(@article.text)%>
+
         <!--    <% if user_signed_in? && !current_user.try(:is_admin?) %>
              <%= simple_format @article.to_yaml %>
              <p>

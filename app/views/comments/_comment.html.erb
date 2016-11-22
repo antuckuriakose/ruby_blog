@@ -15,7 +15,7 @@
 		  	<%= link_to 'X', [comment.article, comment],
 	  								 method: :delete,
 	  								 data: { confirm: 'Are you sure?' },
-	  								 :style=>"color: red;" %>
+       <%= stylesheet_link_tag "application", media: "all" %>
 	  	</span>
 	  <% end %>
   </p>

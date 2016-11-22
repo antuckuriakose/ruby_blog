@@ -25,8 +25,8 @@
               </b>
             </h2>
           </center>
-          <div >
-            <p><%= article.text[0..100] %>...</p>
+          <div>
+            <strong><%= strip_tags(article.text[0..100]) %>...</strong>
             <%= link_to 'Continue Reading ->', article_path(article) %>
             <p style="float: right;">
             <% if  can? :destroy, article %>
@@ -37,7 +37,7 @@
 
             </p>
             <p>Posted On : <%= article.created_at.strftime("%I:%M:%S %p %B %d, %Y") %> by <%= article.user.name? ? article.user.name : 'Unknown' %></p>
-            <p>authorname: <%=article.user.email %></p>
+            <h6>authorname: <%=article.user.email %></h6>>
             <br/>
             <hr style="border-top: 1px solid #ccc;" />
           </div>
