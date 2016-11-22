@@ -35,6 +35,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'will_paginate', '~> 3.1.0'
 # gem for devise authentication
 gem 'devise'
+
+#gem for rolify
+gem 'rolify'
 # gem for cancan
 gem 'cancancan', '~> 1.10'
 # Use Capistrano for deployment
