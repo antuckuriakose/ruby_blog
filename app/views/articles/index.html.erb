@@ -10,7 +10,7 @@
         <% if can? :create, Article %>
           <%= link_to 'New article', new_article_path %>
           <p>Signed in as <%= current_user.email %></p>
-          <%= image_tag current_user.avatar.url(:thumb) %>
+          <%= image_tag current_user.avatar.url(:thumb) %> 
         <% end %>
       <% end %>  
      
@@ -38,6 +38,7 @@
 
             </p>
             <p>Posted On : <%= article.created_at %></p>
+
             
             <br/>
             <hr style="border-top: 1px solid #ccc;" />
