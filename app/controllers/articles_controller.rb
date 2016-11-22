@@ -6,10 +6,12 @@ class ArticlesController < ApplicationController
     # render file: "#{Rails.root}/public/403", formats: [:html], status: 403, layout: false
   end
 
-  before_action:authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [:index, :show]
   def index
-    @articles = Article.paginate(:page => params[:page], :per_page => 3).order('created_at DESC')
-    puts @articles.inspect
+    #.includes(:user) helps to resolve N+1 query problem-> Helps reduce the number of queries send to database
+    # check https://www.sitepoint.com/silver-bullet-n1-problem/ for details
+    @articles = Article.paginate(:page => params[:page], :per_page => 5).includes(:user).order('created_at DESC')
+    #@articles = Article.all().includes(:user)
   end
 
   def show
