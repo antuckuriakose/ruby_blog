@@ -26,6 +26,7 @@
           </h2>
           <div >
             <p><%= strip_tags(article.text[0..100]) %>...</p>
+            <p><%= fa_icon "comments-o"%>(<%= article.comments.size %>)</p>
             <%= link_to 'Continue Reading ->', article_path(article) %>
             <p style="float: right;">
             <% if  can? :destroy, article %>
@@ -36,7 +37,6 @@
 
             </p>
             <p>Posted On : <%= article.created_at.strftime("%I:%M:%S %p %B %d, %Y") %> by <%= article.user.name? ? article.user.name : 'Unknown' %></p>
-            <p>authorname: <%=article.user.email %></p>
             <br/>
             <hr style="border-top: 1px solid #ccc;" />
           </div>

@@ -1,5 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-  
+
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
 
@@ -42,7 +42,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
-
+  # def remove_image
+  #   user = User.find(params[:id])
+  #   user.avatar = nil
+  #   user.save
+  # end
 
 protected
 

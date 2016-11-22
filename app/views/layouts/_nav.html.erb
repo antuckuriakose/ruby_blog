@@ -13,15 +13,19 @@
       <ul class="nav navbar-nav">
         <li><%= link_to "HOME", articles_path, :class=>'active' %></li>
         <% if user_signed_in? %>
-        <li><%= link_to 'SIGN OUT', destroy_user_session_path , :method => :delete %></li>
-        <li><%= link_to 'EDIT', edit_user_registration_path  %></li>
+          <li><%= link_to 'EDIT', edit_user_registration_path  %></li>
         <% else %>
-            <li><%= link_to 'REGISTER', new_user_registration_path %></li>  <li><%= link_to 'SIGN IN', new_user_session_path %></li>
+          <li><%= link_to 'REGISTER', new_user_registration_path %></li>  <li><%= link_to 'SIGN IN', new_user_session_path %></li>
         <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <% if user_signed_in? %>
+          <li><%= image_tag current_user.avatar.url(:thumb), :class=>'img-circle', :style=>'margin:5px; height:40px;' %></li>
+          <li><%= link_to 'SIGN OUT', destroy_user_session_path , :method => :delete %></li>
+        <% else %>
+          <li><%= link_to 'REGISTER', new_user_registration_path %></li>
+          <li><%= link_to 'SIGN IN', new_user_session_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>
