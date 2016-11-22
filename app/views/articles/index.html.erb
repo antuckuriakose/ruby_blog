@@ -37,7 +37,7 @@
             <% end %>
 
             </p>
-            <p>Posted On : <%= article.created_at %></p>
+            <p>Posted On : <%= article.created_at.strftime("%I:%M:%S %p %B %d, %Y") %> by <%= article.user.name? ? article.user.name : 'Unknown' %></p>
             
             <br/>
             <hr style="border-top: 1px solid #ccc;" />
