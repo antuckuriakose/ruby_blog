@@ -42,6 +42,10 @@
       <%= f.label :Gender%><br />
       <%= f.select :Gender, [["Not Telling", 1], ["Male", 2], ["Female", 3]],:class=>'form-control' %>
     </div>
+    <div class="field">
+      <%= f.label :upload_image %>
+      <%= f.file_field :avatar %>
+    </div>
     <br>
     <div class="actions">
       <center><%= f.submit "Sign up" ,:class=>'btn btn-primary' %></center>

@@ -8,7 +8,7 @@
 
   <h4><strong> <%= comment.commenter %> </strong></h4>
   <p border=1>
-    <%= comment.body %>
+      <%= raw (comment.body )%>
 	  <% if (can? :destroy, @article) ||
 		  (can? :destroy, comment) %>
 		  <span style="color: red; float: right;">
