@@ -20,6 +20,8 @@ gem 'coffee-rails', '~> 4.2'
 # Roles management
 gem "rolify"
 
+gem 'devise_token_auth'
+gem 'omniauth'
 gem "font-awesome-rails"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

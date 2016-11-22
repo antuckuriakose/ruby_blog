@@ -47,7 +47,7 @@ class BlogFlowTest < ActionDispatch::IntegrationTest
     get "/users/sign_in"
     assert_response :success
 
-    post_via_redirect "/users/sign_in", user: {email: "ab@a.com", password: "123456"}
+    sign_in users(:bob)
     assert_equal "/users/sign_in", path
     assert_response 200
   end
