@@ -9,16 +9,16 @@
             <li><%= link_to "HOME", articles_path, :class=>'active' %></li>
              
               <!-- <li><a href="#">CONTACT</a></li> -->
-            <li style="float: right; "> 
-              <% if user_signed_in? %>
+            <% if user_signed_in? %>
+            <li style="float: right; ">
                 <%= link_to 'SIGN OUT', destroy_user_session_path , :method => :delete %>
-                  <li><%= link_to 'EDIT',  edit_user_registration_path %></li>
-              <% else %>
+            <li><%= link_to 'EDIT', edit_user_registration_path  %></li>
+            <% else %>
                 <li><%= link_to 'REGISTER', new_user_registration_path %></li> 
               
                 <li><%= link_to 'SIGN IN', new_user_session_path %></li>
             <% end %>
-            
+
           </ul>
         </div>
       </div>

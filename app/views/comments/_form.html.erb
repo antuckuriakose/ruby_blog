@@ -2,7 +2,7 @@
   <p>
     <%= f.label :commenter %><br>
 
-    <%= f.text_field :commenter, :class=>'form-control' %>
+    <%= f.text_field :commenter, :class=>'form-control', :value=>current_user.name, :readonly=>"readonly" %>
   </p>
   <p>
     <%= f.label :body %><br>

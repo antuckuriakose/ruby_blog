@@ -1,21 +1,22 @@
-<div class="col-md-12" 
-	 style="border-style: solid; 
-	 		border-color: aliceblue; 
-	 		border-width: 1px; 
-	 		padding: 5px; 
+<div class="col-md-12"
+	 style="border-style: solid;
+	 		border-color: aliceblue;
+	 		border-width: 1px;
+	 		padding: 5px;
 	 		background-color: aliceblue;
 	 		margin-top: 5px;">
 
-  <h6> <%= comment.commenter %></h6>
-  <div class="col-md-offset-2">
-  	<p border=1>
-      <%= comment.body %>
-      <span style="color: red; float: right;">
-        <%= link_to 'X', [comment.article, comment],
-                     method: :delete,
-                     data: { confirm: 'Are you sure?' } %>
-  	  </span>
-    </p>
-  </div>
+  <h4><strong> <%= comment.commenter %> </strong></h4>
+  <p border=1>
+    <%= comment.body %>
+	  <% if (can? :destroy, @article) ||
+		  (can? :destroy, comment) %>
+		  <span style="color: red; float: right;">
+		  	<%= link_to 'X', [comment.article, comment],
+	  								 method: :delete,
+	  								 data: { confirm: 'Are you sure?' },
+	  								 :style=>"color: red;" %>
+	  	</span>
+	  <% end %>
+  </p>
 </div>
-  
