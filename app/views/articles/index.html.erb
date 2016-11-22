@@ -10,6 +10,7 @@
         <% if can? :create, Article %>
           <%= link_to 'New article', new_article_path %>
           <p>Signed in as <%= current_user.email %></p>
+          <%= image_tag current_user.avatar.url(:thumb) %> 
         <% end %>
       <% end %>  
      
@@ -37,7 +38,8 @@
 
             </p>
             <p>Posted On : <%= article.created_at.strftime("%I:%M:%S %p %B %d, %Y") %> by <%= article.user.name? ? article.user.name : 'Unknown' %></p>
-            <p>authorname: <%=article.user.email %></p>
+
+            
             <br/>
             <hr style="border-top: 1px solid #ccc;" />
           </div>

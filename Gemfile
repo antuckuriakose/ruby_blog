@@ -37,6 +37,10 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'devise'
 # gem for cancan
 gem 'cancancan', '~> 1.10'
+#gem for uploadimage
+gem "paperclip", "~> 5.0.0"
+#gem for ckeditor
+gem 'ckeditor'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

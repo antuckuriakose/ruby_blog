@@ -1,2 +1,0 @@
-class Mouse < ApplicationRecord
-end

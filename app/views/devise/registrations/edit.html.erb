@@ -1,4 +1,4 @@
-<div class="col-md-offset-4 col-md-4">
+<div class="col-md-offset-4 col-md-4" style="padding: 5px;border-width: 1px; border-radius: 5px; border-color: black;">
   <center><h2>Edit <%= resource_name.to_s.humanize %></h2></center>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -64,6 +64,11 @@
     <%= f.label :Gender%><br />
     <%= f.select :Gender, [["Not Telling", 1], ["Male", 2], ["Female", 3]],:class=>'form-control' %>
   </div>
+  <div class="field">
+    <%= f.label :upload_image %>
+    <%= f.file_field :avatar %>
+  </div>
+  <br/>
     <div class="actions">
       <center><%= f.submit "Update" , :class=>'btn btn-primary' %></center>
     </div>
@@ -80,5 +85,5 @@
     </center>
   <center><%= link_to "Back", :back %></center>
 
-
+  <%= link_to "Back", :back %>
 </div>
