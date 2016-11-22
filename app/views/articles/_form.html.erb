@@ -1,24 +1,24 @@
 <div>
   <%= form_for @article do |f| %>
-   
+
     <% if @article.errors.any? %>
       <%= render 'common/error', errors: @article.errors %>
     <% end %>
-   
+
     <p>
       <%= f.label :title %><br>
       <%= f.text_field :title , :class=>'form-control'%>
     </p>
-   
+
     <p>
       <%= f.label :text %><br>
       <%= f.text_area :text, :id=>'edit' , :class=>'form-control'%>
     </p>
-   
+
     <p>
       <%= f.submit :class=>'btn btn-primary'%>
     </p>
-   
+
   <% end %>
   
   <!-- Initialize the editor.for the forola editor -->

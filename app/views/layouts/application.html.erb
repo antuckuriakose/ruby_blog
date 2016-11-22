@@ -3,19 +3,30 @@
   <head>
     <title>Blog</title>
     <%= csrf_meta_tags %>
-
+    <%= favicon_link_tag 'favicon.png' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
    <%= render 'layouts/nav' %>
-    
+
   	<div class="container">
-     <p class="notice"><%= notice %></p>
-     <p class="alert"><%= alert %></p>
+      <% if notice %>
+        <div class="alert alert-success">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <%= fa_icon "check", :style=>"float:left;padding-top:3px;" %>
+          <p class="notice" style="margin-left:25px;"><%= notice %></p>
+
+        </div>
+      <% elsif alert  %>
+        <div class="alert alert-danger">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <%= fa_icon "close", :style=>"float:left;padding-top:3px;" %>
+          <p class="alert" style="margin-left:25px;"><%= alert %></p>
+        </div>
+      <% end %>
      <%= yield %>
   	</div>
   </body>
 </html>
-  
