@@ -11,11 +11,8 @@
     </p>
 
     <p>
-      <%= f.label :text %><br>
-      <%= f.cktext_area :text,
-        ckeditor: { uiColor: '#fffFFF',
-                    extraPlugins: 'bootstrapVisibility,dialog,image2,clipboard,imageresponsive,lineutils', 
-                    toolbar: 'mini' } %>
+      <%= f.label :body %><br>
+        <%= f.cktext_area :text, :class=>'form-control' %>
 
     </p>
 
