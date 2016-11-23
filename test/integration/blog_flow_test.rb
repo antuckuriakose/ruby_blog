@@ -47,7 +47,7 @@ class BlogFlowTest < ActionDispatch::IntegrationTest
     get "/users/sign_in"
     assert_response :success
 
-    post_via_redirect "/users/sign_in", user: {email: "ab@a.com", password: "123456"}
+    post_via_redirect "/users/sign_in", user: {email: "ab@.com", password: "123456"}
     assert_equal "/users/sign_in", path
     assert_response 200
   end
@@ -56,11 +56,15 @@ class BlogFlowTest < ActionDispatch::IntegrationTest
     assert_response 302
   end
 
-  # test "can create an article with valid user" do
-  #   get "/articles/new"
-  #   assert_response 302
-  #
-  #   post "/users/sign_in",params: { user: {email: "ab@a.com", password: "123456"} }
+  test "can create an article with valid user" do
+    get "/articles/new"
+    assert_response 302
+
+    post "/users/sign_in",params: { user: {email: "ab@.com", password: "123456"} }
+    assert_equal "/users/sign_in",path
+    assert_response :success
+  end
+  
   #   # assert_response :redirect
   #   # follow_redirect!
   #   assert_response :success
