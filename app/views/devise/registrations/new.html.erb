@@ -31,16 +31,8 @@
       <%= f.date_field :dob , :class=>'form-control' %>
     </div>
     <div class="field">
-      <%= f.label :last_name%><br />
-      <%= f.text_field :last_name, autofocus: true ,:class=>'form-control' %>
-    </div>
-    <div class="field">
-      <%= f.label :date_of_birth%><br />
-      <%= f.date_field :date_of_birth, autofocus: true ,:class=>'form-control' %>
-    </div>
-    <div class="field">
-      <%= f.label :Gender%><br />
-      <%= f.select :Gender, [["Not Telling", 1], ["Male", 2], ["Female", 3]],:class=>'form-control' %>
+      <%= f.label :avatar %><br />
+      <%= f.file_field :avatar %>
     </div>
     <br>
     <div class="actions">
@@ -49,4 +41,4 @@
   <% end %>
   <br>
   <center><%= render "devise/shared/links" %></center>
-</div> 
+</div>

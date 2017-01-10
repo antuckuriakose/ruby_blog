@@ -9,12 +9,15 @@ class Ability
     elsif user.has_role? :moderator
       can [:read, :create, :destroy], Article
       can :manage, Comment
-    else
+    elsif user.has_role? :writer
       can [:read, :create], Article
-       can [:update, :destroy], Article, :user_id => user.id
+      can [:read, :create], Comment
+      can [:update, :destroy], Article, :user_id => user.id
       can [:destroy], Comment, :commenter => user.name
-      # can [:destroy], Article, :user_id=>user.id
-
+    else
+      can [:read], Article
+      can [:update, :destroy], Article, :user_id => user.id
+      can [:read], Comment
     end
 
     # Define abilities for the passed in user here. For example:

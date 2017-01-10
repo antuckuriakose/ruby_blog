@@ -7,11 +7,16 @@
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <%= devise_error_messages! %>
       </div>
-  
 
     <div class="field">
+      <center>
+        <%= image_tag current_user.avatar.url(:medium), :class=>'img-circle' %>
+        <%= f.file_field :avatar %>
+      </center>
+    </div>
+    <div class="field">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, :class=>'form-control' %>
+      <%= f.email_field :email, autofocus: true, :class=>'form-control', :readonly=>'readonly' %>
     </div>
     <div class="field">
       <%= f.label :name %><br />
@@ -34,7 +39,7 @@
       <%= f.password_field :password, autocomplete: "off", :class=>'form-control' %>
       <% if @minimum_password_length %>
         <br />
-        <em><%= @minimum_password_length %> characters minimum</em>
+        <em> <%= @minimum_password_length %> characters minimum</em>
       <% end %>
     </div>
 
@@ -47,23 +52,6 @@
       <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
       <%= f.password_field :current_password, autocomplete: "off", :class=>'form-control' %>
     </div>
-    <br>
-    <%= f.label :first_name%><br />
-    <%= f.text_field :first_name, autofocus: true ,:class=>'form-control' %>
-  </div>
-     
-  <div class="field">
-    <%= f.label :last_name%><br />
-    <%= f.text_field :last_name, autofocus: true ,:class=>'form-control' %>
-  </div>
-  <div class="field">
-    <%= f.label :date_of_birth%><br />
-    <%= f.date_field :date_of_birth, autofocus: true ,:class=>'form-control' %>
-  </div>
-  <div class="field">
-    <%= f.label :Gender%><br />
-    <%= f.select :Gender, [["Not Telling", 1], ["Male", 2], ["Female", 3]],:class=>'form-control' %>
-  </div>
     <div class="actions">
       <center><%= f.submit "Update" , :class=>'btn btn-primary' %></center>
     </div>

@@ -1,4 +1,5 @@
 class Users::RegistrationsController < Devise::RegistrationsController
+
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
 
@@ -9,12 +10,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   # def create
-  #   super
+  #
   #   @user = User.create(sign_up_params)
   #   if @user.save
-  #     render 'articles/index'
+  #     redirect_to articles_path
   #   else
-  #     render 'new'
+  #     redirect_to "sign_up", alert: 'Not happening'
   #   end
   # end
 
@@ -41,6 +42,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def cancel
   #   super
   # end
+  # def remove_image
+  #   user = User.find(params[:id])
+  #   user.avatar = nil
+  #   user.save
+  # end
 
 protected
 
@@ -65,10 +71,10 @@ protected
   # end
   private
     def sign_up_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :dob)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :dob, :avatar)
     end
 
     def account_update_params
-      params.require(:user).permit(:email, :password, :dob, :name, :about, :current_password)
+      params.require(:user).permit(:email, :password, :dob, :name, :about, :current_password, :avatar)
     end
 end

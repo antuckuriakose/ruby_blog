@@ -2,58 +2,32 @@
 <!-- <div class="col-md-6" >  -->
   <div class="jumbotron center">
     <h1><%= @article.title %></h1>
-       <% if current_user.try(:is_admin?)%>
-        <%= debug @article %>
-        <p>
-          <b>Title:</b>
-          <%= @article.title %>
-        </p>
-      <% end %>
 
       <p>
         <span style="color: grey">Posted On :<%= @article.created_at.strftime("%I:%M:%S %p %B %d, %Y") %> by <%= @article.user.name? ? @article.user.name : @article.user.email %></span>
       </p>
   </div>
-     <div class="col-md-2" >
-      <% if can? :update, @article %>
-        <%= link_to 'Edit', edit_article_path(@article) %> |
-      <% end %>
-      <%= link_to 'Back', articles_path %>
-     </div>
-         <div class="col-md-9">
-            <p>
-            <%= @article.text %>
-           </p>
-        <!--    <% if user_signed_in? && !current_user.try(:is_admin?) %>
-             <%= simple_format @article.to_yaml %>
-             <p>
-             <b>text:</b>
-             <%= @article.text %>
-             </p>
-           <% end %> -->
-
-   <!-- style="border-style: solid;
-      border-color: aliceblue;
-      border-width: 1px;
-      padding: 5px;
-   
-    <!-- style="border-style: solid; 
-      border-color: aliceblue; 
-      border-width: 1px; 
-      padding: 5px; -->
-  <div class="col-md-12" style="border-color:#c3ccdb; background-color: #c3ccdb";>
-
-        <% if @article.comments %>
-
+  <div class="col-md-2" >
+    <% if can? :update, @article %>
+      <%= link_to 'Edit', edit_article_path(@article) %> |
+    <% end %>
+    <%= link_to 'Back', articles_path %>
+  </div>
+  <div class="col-md-9">
+    <div class="col-md-12">
+      <%= @article.text.html_safe %>
+    </div>
+    <div class="col-md-12" style="border-color:#c3ccdb; background-color: #c3ccdb; padding-bottom: 25px;">
+      <% if @article.comments %>
         <h2>Comments</h2>
         <%= render @article.comments %>
-        <% end %>
-       </div>
-
-        <div class="col-md-12" style="border-color: aliceblue; background-color: #b7c8e5;">
+      <% end %>
+    </div>
+    <% if can? :create, Comment %>
+      <div class="col-md-12" style="border-color: aliceblue; background-color: #b7c8e5; padding-bottom: 15px; margin-bottom: 15px;">
         <h2>Add a comment:</h2>
         <%= render 'comments/form' %>
       </div>
-
-   </div>
- </div>
+    <% end %>
+  </div>
+</div>
