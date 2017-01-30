@@ -14,8 +14,6 @@
         <li><%= link_to "HOME", articles_path, :class=>'active' %></li>
         <% if user_signed_in? %>
           <li><%= link_to 'EDIT', edit_user_registration_path  %></li>
-        <% else %>
-          <li><%= link_to 'REGISTER', new_user_registration_path %></li>  <li><%= link_to 'SIGN IN', new_user_session_path %></li>
         <% end %>
       </ul>
       <ul class="nav navbar-nav navbar-right">
